@@ -1,0 +1,33 @@
+{
+  "Title":"User Login",
+  "Description":"Authenticate a user and create a session",
+  "Method":"POST",
+  "URL":"/Login",
+  "Headers":[
+    {
+      "Accept":"application/xml, application/json, application/javascript"
+    }
+  ],
+  "request":[
+    {
+      "Field":"email",
+      "Type":"String",
+      "Required":true,
+      "Description":"User Login"
+    },
+    {
+      "Field":"password",
+      "Type":"String",
+      "Required":true,
+      "isNativeType":false,
+      "Description":"User Password"
+    }
+  ],
+  "response":[
+    {
+      "Type":"UserLoginResponse",
+      "isNativeType":false,
+      "Description":"User Authencation Details"
+    }
+  ]
+}

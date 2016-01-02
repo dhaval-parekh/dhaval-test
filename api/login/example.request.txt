@@ -1,0 +1,9 @@
+POST https://datauniq.azurewebsites.net/api/TradeManager.svc/Login HTTP/1.1
+Host: datauniq.azurewebsites.net
+Content-Type: application/json; charset=UTF-8
+Accept: application/json
+
+{
+  "email":"tester@datauniq.com",
+  "password":"xxx-xxx"
+}

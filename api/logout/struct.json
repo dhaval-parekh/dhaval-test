@@ -1,0 +1,27 @@
+{
+  "Title": "User Logout",
+  "Description": "Close an authentcation session",
+  "Method": "POST",
+  "URL": "/Logout",
+  "Headers": [
+    {
+      "Accept": "application/xml, application/json, application/javascript"
+    }
+  ],
+  "request": [
+    {
+      "Field": "sid",
+      "Type": "String",
+      "Required": true,
+      "Description": "User Session Identifier"
+    },
+    {
+      "Field": "state",
+      "Type": "Dictionary[string,string]",
+      "Required": false,
+      "isNativeType": false,
+      "Description": "User State"
+    }
+  ],
+  "response": null
+}

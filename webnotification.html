@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bowser Notifications</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <h1>Notifications</h1>
+    <p id="notifications-supported">notifications: </p>
+
+    <button type="button" class="trigger-notification-send">Send Notification</button>
+
+    <p class="trigger-notification-error"></p>
+
+    <h3>Known Compatibilities</h3>
+    <p><a href="http://caniuse.com/#feat=notifications">source</a></p>
+    <ul>
+      <li>Firefox</li>
+      <li>Chrome</li>
+      <li>Safari</li>
+      <li>Opera</li>
+    </ul>
+
+    <script>
+      (function() {
+        if (typeof Notification === 'function') {
+          document.getElementById('notifications-supported').innerHTML += '&#10004;';
+        } else {
+          document.getElementById('notifications-supported').innerHTML += '&#x2717;';
+        }
+        var sendNotification = function() {
+          var notification = new Notification('How a day', {
+            icon: 'bowser.png',
+            body: 'I am always irrationally angry'
+          });
+          notification.onshow  = function() { console.log('show event') };
+          notification.onclick = function() { console.log('click event') };
+          notification.onerror = function() { console.log('error event') };
+          notification.onclose = function() { console.log('close event') };
+        };
+        var showError = function() {
+          document.querySelector('.trigger-notification-error').textContent = 'You have to let Bowser in; permission denied.';
+        };
+        document.querySelector('.trigger-notification-send').addEventListener('click', function() {
+          if (window.Notification.permission == 'granted') {
+            sendNotification();
+          } else if (window.Notification.permission != 'denied') {
+            Notification.requestPermission(function(permission) {
+              permission === 'granted' ? sendNotification() : showError();
+            });
+          } else {
+            showError();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

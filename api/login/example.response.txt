@@ -1,0 +1,182 @@
+HTTP/1.1 200 OK
+Content-Length: 1617
+Content-Type: application/json; charset=utf-8
+Vary: Accept-Encoding
+Server: Microsoft-IIS/8.0
+X-Powered-By: ASP.NET
+Date: Thu, 27 Nov 2014 03:07:36 GMT
+
+{
+  "avatar": "14bd3bbeedaf4489a65e5aff8157d56c", 
+  "dashboards": [
+    {
+      "Description": "", 
+      "ID": 1, 
+      "Name": "Daily View"
+    }, 
+    {
+      "Description": "", 
+      "ID": 2, 
+      "Name": "This Year"
+    }, 
+    {
+      "Description": "", 
+      "ID": 3, 
+      "Name": "Quick View"
+    }, 
+    {
+      "Description": "", 
+      "ID": 4, 
+      "Name": "Sunil"
+    }
+  ], 
+  "portfolios": [
+    {
+      "Description": "", 
+      "ID": 7, 
+      "Name": "OH"
+    }, 
+    {
+      "Description": "", 
+      "ID": 10, 
+      "Name": "OHALL"
+    }, 
+    {
+      "Description": "", 
+      "ID": 11, 
+      "Name": "OH0"
+    }, 
+    {
+      "Description": "", 
+      "ID": 12, 
+      "Name": "OH1"
+    }, 
+    {
+      "Description": "", 
+      "ID": 13, 
+      "Name": "OH2"
+    }, 
+    {
+      "Description": "", 
+      "ID": 14, 
+      "Name": "OH3"
+    }, 
+    {
+      "Description": "", 
+      "ID": 15, 
+      "Name": "OH4"
+    }, 
+    {
+      "Description": "", 
+      "ID": 16, 
+      "Name": "OH5"
+    }, 
+    {
+      "Description": "", 
+      "ID": 18, 
+      "Name": "Test2"
+    }, 
+    {
+      "Description": "", 
+      "ID": 19, 
+      "Name": "Test3"
+    }, 
+    {
+      "Description": "", 
+      "ID": 20, 
+      "Name": "Test"
+    }, 
+    {
+      "Description": "", 
+      "ID": 21, 
+      "Name": "Test22"
+    }, 
+    {
+      "Description": "", 
+      "ID": 22, 
+      "Name": "TESBOWS"
+    }, 
+    {
+      "Description": "", 
+      "ID": 23, 
+      "Name": "Test123"
+    }
+  ], 
+  "sessionID": "5D0645D54FD34EDB9A0C30DA9F13428E", 
+  "state": {
+    "other": [
+      {
+        "Key": "isFullScreen", 
+        "Value": "true"
+      }, 
+      {
+        "Key": "lastActiveContent", 
+        "Value": "0"
+      }, 
+      {
+        "Key": "portfolio", 
+        "Value": "10"
+      }
+    ], 
+    "widget": [
+      {
+        "Key": 6, 
+        "Value": [
+          {
+            "Key": "quickPeriodFilterOn", 
+            "Value": "true"
+          }, 
+          {
+            "Key": "periodType", 
+            "Value": "2"
+          }, 
+          {
+            "Key": "periodOffset", 
+            "Value": "3"
+          }, 
+          {
+            "Key": "quickStateFilterOn", 
+            "Value": "false"
+          }, 
+          {
+            "Key": "quickClassFilterOn", 
+            "Value": "false"
+          }, 
+          {
+            "Key": "quickClassFilter", 
+            "Value": "0"
+          }, 
+          {
+            "Key": "quickStateFilter", 
+            "Value": "0"
+          }, 
+          {
+            "Key": "groupBy", 
+            "Value": "Symbol"
+          }, 
+          {
+            "Key": "filterID", 
+            "Value": ""
+          }, 
+          {
+            "Key": "periodStart", 
+            "Value": "February, 2014"
+          }, 
+          {
+            "Key": "periodEnd", 
+            "Value": "November, 2014"
+          }
+        ]
+      }
+    ]
+  }, 
+  "user": {
+    "Country": "USA", 
+    "Email": "tester@datauniq.com", 
+    "Name": "Rohit Yadav", 
+    "RegisteredOn": null, 
+    "UID": "2a4cbc02-a901-4d6f-a930-034e06ba248f"
+  }
+}
+
+

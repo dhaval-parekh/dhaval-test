@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 1 | Anguler Js</title>
+<!--<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>-->
+<script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body>
+<div data-ng-app="" data-ng-init="firstName='John';lastName='doe'">
+<h3>Example 1</h3>
+<p>Name: <input type="text" data-ng-model="name"></p>
+<p>You wrote: {{ name }}</p>
+
+<h3>My first AngularJS Directives</h3>
+<p>Bind the data-ng-modal with "data-ng-app" </p>
+<p>The name is <span ng-bind="firstName"></span> <span ng-bind="lastName"></span></p>
+
+<h3>My first AngularJS Directives (with valid HTML5)</h3>
+<p>Bind the ng-modal with "ng-app" </p>
+<p>The name is <span data-ng-bind="firstName"></span> <span data-ng-bind="lastName"></span></p>
+
+<h3>My first AngularJS Expression</h3>
+<p>5 + 5 : {{ 5 + 5 }}</p>
+<p>7 - 5 : {{ 7 - 5 }}</p>
+<p>6 * 5 : {{ 6 * 5 }}</p>
+<p>20 / 5 : {{ 20 / 5 }}</p>
+<p>23 % 5 : {{ 23 % 5 }}</p>
+
+
+</div>
+<script>
+var app = angular.module('app', []);
+
+</script>
+</body>
+</html>

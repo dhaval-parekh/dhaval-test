@@ -1,0 +1,15 @@
+POST https://datauniq.azurewebsites.net/api/TradeManager.svc/Logout HTTP/1.1
+Host: datauniq.azurewebsites.net
+Connection: keep-alive
+Content-Length: 157
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: https://datauniq.azurewebsites.net
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+Content-Type: application/json; charset=UTF-8
+Referer: https://datauniq.azurewebsites.net/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8,pt;q=0.6
+Cookie: ARRAffinity=9b39832ab6b8e9c1150a696084ff79a66d701b49ae0af685251fbd9e59dfea9b
+
+{"state":[{"Key":"isFullScreen","Value":true},{"Key":"lastActiveContent","Value":0},{"Key":"portfolio","Value":10}],"sid":"5D0645D54FD34EDB9A0C30DA9F13428E"}

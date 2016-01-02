@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Js Class</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+	// global namespace
+	var MYAPP = MYAPP || {};
+	// sub namespace
+	MYAPP.event = {};
+	
+	
+	// Create container called MYAPP.commonMethod for common method and properties
+	MYAPP.commonMethod = {
+		regExpForName: "",
+		regExpForPhone: "",
+		validateName: function(name){
+			alert('Validate '+name);
+		},
+		validatePhone: function(phone){
+			alert('Phone '+phone);
+		},
+	};
+	
+	// Object together with the method declarations
+	MYAPP.event = {
+		addListener: function(el, type, fn){
+			console.log(el);
+			console.log(type);
+			console.log(fn);
+			fn();
+			// code stuff
+		},
+		removeListener: function(el, type, fn){
+			// code stuff
+			
+		},
+		getEvent: function(e) {
+			// code stuff
+		},
+		// Can add another method and properties
+	};
+	
+	
+	MYAPP.event.addListener("yourel", "type", callback);
+	
+	function callback(){
+		alert('callback')	
+	}
+</script>
+</html>

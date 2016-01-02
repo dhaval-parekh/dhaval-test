@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 3 | Anguler Js</title>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>-->
+<script type="text/javascript" src="js/angular.min.js"></script>
+<style>
+table{ width:100%; }
+table, th , td {
+	border: 1px solid grey;
+	border-collapse: collapse;
+	padding: 5px;
+}
+/*
+table tr:nth-child(odd) {
+	background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+	background-color: #ffffff;
+}*/
+</style>
+</head>
+<body>
+
+<div ng-app="app" ng-controller="appController">
+	<h3>Ng repaeat with Filter</h3>
+	<p><input type="text" ng-model="query"></p>
+	<ul><li ng-repeat="x in users | orderBy: '-name' | filter:query ">{{ x.id+' => '+x.name | uppercase  }}</li></ul>
+	
+	<h3>Http Request with Anguler Js <small>With Repeater</small></h3>
+	<ul>
+		<li ng-repeat="x in names">{{ x.Name +' => '+x.City+' ('+x.Country+')' }}</li>
+	</ul>
+	<h3>Ng Repeat With table</h3>
+	<table>
+		<thead><tr><th>Name</th><th>City</th><th>Country</th></tr></thead>
+		<tr ng-repeat="x in names"><td>{{ x.Name }}</td><td>{{ x.City }}</td><td>{{ x.Country }}</td></tr>
+	</table>
+	<h3>ng Table with Even Odd</h3>
+	<table>
+		<tr ng-repeat="x in names">
+			<td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Name }}</td>
+			<td ng-if="$even">{{ x.Name }}</td>
+			<td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Country }}</td>
+			<td ng-if="$even">{{ x.Country }}</td>
+		</tr>
+	</table> 
+</div>
+
+</body>
+<script type="text/javascript">
+	angular.module('app',[]).controller('appController',function($scope,$http){
+		$scope.users = [ {id:1, name:'Dhaval'} ,{id:2, name:'Parekh'} ,{id:3, name:'Nicolash'} ,
+				 {id:4, name:'Smith'} ,{id:5, name:'Devang'} ,{id:6, name:'Bhargav'} 	];
+		
+		var url = "http://www.w3schools.com/angular/customers.php";
+		$http.get(url)
+			.success(function(response){
+				$scope.names = response.records;
+			});
+		
+	})
+	
+	
+</script>
+</html>

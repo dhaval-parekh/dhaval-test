@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+$(document).ready(function(e) {
+
+$( ".current" ).click(function() {
+
+$(".portfolio-style").hide();
+$(".homeportfolioloader").show();
+
+        var filtertype = $(this).data("filter");
+	   console.log(filtertype);
+            $.ajax({
+            url:'portfolio-images.html',
+            type:'POST',
+            dataType:"json",
+            data:{filtertype: filtertype},
+    }).done(function(data){
+        if(data){
+            var li  = "";
+            $.each(data.filtertype, function( index, value ) {
+            console.log("Index: " + index.pimg_id);
+            console.log("Value: " + value.pimg_id);
+                li +="<li class='"+value.pcat_slug+"'><img src='images/portfolio/logo/"+value.pcat_slug+"/"+value.pimg_name+"'/></li>";
+            });
+            $(".portfolio-style").empty();
+            $(".portfolio-style").append(li);
+
+
+            setTimeout(function(){
+                $(".homeportfolioloader").hide();
+                $('.portfolio-style').fadeIn(800);
+            }, 4000); 
+        }
+    });
+});
+
+    });
+</script>
+    <h1>Get Data Using Json</h1>
+    <div class="portfolio-menu">
+      <ul>
+                <li><a class="current" data-filter="all" style="cursor: pointer !important;">All</a></li>
+                <li><a class="current" data-filter="mobileapps" style="cursor: pointer !important;">Mobile Apps</a></li>
+                <li><a class="current" data-filter="illustrations" style="cursor: pointer !important;">Illustrations</a></li>
+     </ul>
+    </div>
+    <div class="homeportfolioloader" style="display: none;"></div>
+    <ul class="portfolio-style"></ul>
+</body>
+</html>

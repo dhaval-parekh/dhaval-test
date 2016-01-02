@@ -1,0 +1,31 @@
+Direction services :
+https://developers.google.com/maps/documentation/javascript/examples/directions-simple
+
+
+// get lat long to address 
+private function get_lat_long($address){
+	$API_KEY = 'AIzaSyC70LnMBiqyXcmpnQeryzq0VK12o6P5pnw';
+	$address = str_replace(" ", "+", $address);
+	$url = "https://maps.googleapis.com/maps/api/geocode/json?address=".$address."&key=".$API_KEY."";
+	$json = file_get_contents($url);
+	$json = json_decode($json);
+	if($json->status == 'ZERO_RESULTS'){
+		$lat = 0;
+		$long = 0; 	
+	}else{
+		$lat = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
+		$long = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};	
+	}
+	
+	$location = [$lat,$long];
+	return $location;
+} 
+
+// get address by lat long 
+
+http://maps.googleapis.com/maps/api/geocode/json?latlng=44.4647452,7.3553838&sensor=true
+
+
+// get cordinate form map 
+http://stackoverflow.com/questions/8026960/google-maps-html5-click-to-get-lat-long
+http://stackoverflow.com/questions/8550286/how-to-get-latitude-longitude-onclick-of-a-map-in-google-maps-api-v3-javascript

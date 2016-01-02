@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style type="text/css">
+.container {
+	width: 40%;
+	height: 40%;
+	background: #444;
+	margin: 0 auto;
+}
+.container img.wide {
+	max-width: 100%;
+	max-height: 100%;
+	height: auto;
+}
+.container img.tall {
+	max-height: 100%;
+	max-width: 100%;
+	width: auto;
+}
+​
+</style>
+</head>
+<body>
+
+<div class="container"> <img src="http://butmostlysports.com/wp-content/uploads/2014/03/Hollis-Jefferson-free-throw-shake.gif" /> </div>
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+	$(window).load(function(){
+		jQuery('body').height(window.innerHeight);
+ $('.container').find('img').each(function(){
+  var imgClass = (this.width/this.height > 1) ? 'wide' : 'tall';
+  $(this).addClass(imgClass);
+ })
+})
+</script>
+</html>

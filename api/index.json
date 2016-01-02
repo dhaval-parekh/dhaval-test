@@ -1,0 +1,55 @@
+[
+  {
+    "category": "User Authentication",
+    "items": [
+      {
+        "name": "Login",
+        "label": "User Login"
+      },
+      {
+        "name": "Logout",
+        "label": "User Logout"
+      }
+    ]
+  },
+  
+  {
+    "category": "Portfolio Management",
+    "items": [
+      {
+        "name": "SetPortfolio",
+        "label": "Create/Edit Portfolio"
+      },
+      {
+        "name": "DeletePortfolio",
+        "label": "Delete Portfolio"
+      },
+      {
+        "name": "GetPortfolios",
+        "label": "Get all Portfolios"
+      },
+      {
+        "name": "GetPortfolioDetail",
+        "label": "Get Portfolio details"
+      }
+    ]
+  },
+  
+  {
+    "category": "Dashboard Management",
+    "items": [
+      {
+        "name": "SetDashboard",
+        "label": "Create/Edit Dashboard"
+      },
+      {
+        "name": "DeleteDashboard",
+        "label": "Delete Dashboard"
+      },
+      {
+        "name": "GetDashboards",
+        "label": "Get all Dashboards"
+      }
+    ]
+  }
+]

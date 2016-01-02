@@ -1,0 +1,4 @@
+server: ftp.apmirent.com
+Username: admin@apmirent.com
+Password: hJsha7@1!
+port:  21

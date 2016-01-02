@@ -1,0 +1,61 @@
+Ref : http://php.net/manual/en/pthreads.installation.php
+
+For Wampp (Windows)
+-----------------------------------------------------------------------------------
+1.  Find out what is your 'PHP Extension Build' version by using phpinfo(). You can use this - http://localhost/?phpinfo=1
+
+2.  Download the pthreads that matches your php version (32 bit or 64 bit) and php extension build (currently used VC11). 
+	Use this link for download - http://windows.php.net/downloads/pecl/releases/pthreads/
+
+3.  Extract the zip -
+      Move php_pthreads.dll to the 'bin\php\ext\' directory.
+      Move pthreadVC2.dll to the 'bin\php\' directory.
+      Move pthreadVC2.dll to the 'bin\apache\bin' directory.
+      Move pthreadVC2.dll to the 'C:\windows\system32' directory.
+
+4.  Open php\php.ini and add
+      extension=php_pthreads.dll
+
+Now restart server and you are done. Thanks.
+
+
+
+
+For Lamp (Linux)
+------------------------------------------------------------------------------------------------------------------------------------------
+
+I haven't found any proper instructions on how to install pthreads in linux, so I'll leave the steps I followed:
+
+# Required libraries
+sudo apt-get install gcc make libzzip-dev libreadline-dev libxml2-dev \
+libssl-dev libmcrypt-dev libcurl4-openssl-dev lib32bz2-dev
+
+# Download PHP
+cd /usr/local/src
+
+wget http://www.php.net/distributions/php-<version>.tar.gz
+( e.g. wget http://www.php.net/distributions/php-5.5.8.tar.gz )
+
+# Extract
+tar zxvf php-<version>.tar.gz
+(e.g. tar zxvf php-5.5.8.tar.gz )
+
+# Configure
+cd /usr/local/src/php-<version>
+( e.g. cd /usr/local/src/php-5.5.8 )
+
+./configure --prefix=/usr --with-config-file-path=/etc --enable-maintainer-zts
+
+# Compile
+make && make install
+( make -j3 && make -j3 install) -> Faster building
+
+# Copy configuration
+cp php.ini-development /etc/php.ini
+
+# Install pthreads
+pecl install pthreads
+echo "extension=pthreads.so" >> /etc/php.ini
+
+# Check installation
+php -m | grep pthreads

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 2 | Anguler Js</title>
+<!--<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>-->
+<script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl" data-ng-init=" 
+person={firstName:'Nicolash',lastName:'Smith'};
+points=[1,15,19,'Fourth Point',40];
+names=[{name:'Jani',country:'Norway'},{name:'Hege',country:'Sweden'},{name:'Kai',country:'Denmark'}];">
+<h3>My first AngularJS Controller</h3>
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+<br>Full Name: {{firstName + " " + lastName}}
+<p>Name in Upper case: {{ firstName+" "+lastName | uppercase }}</p>
+<p>Name in Lower case: {{ firstName+" "+lastName | lowercase }}</p>
+
+<h3>Init Object Display </h3>
+<p>The Name {{ person.firstName }} {{ person.lastName }}</p>
+<p>The Name in Tag <span data-ng-bind="person.firstName+' '+person.lastName"></span></p>
+
+<h3>AngularJS Arrays</h3>
+<p>The third result is <span ng-bind="points[2]"></span></p>
+<p>Forth point => {{ points[3] }}</p>
+
+<h3>ng Multiple binding</h3>
+<p>Price : <input type="number" data-ng-model="price[0]"></p>
+<p>Quntity : <input type="number" data-ng-model="quntity[0]"></p>
+<p>Total : <span data-ng-bind="price[0] * quntity[0]"></span></p>
+
+<p>Price : <input type="number" data-ng-model="price[0]"></p>
+<p>Quntity : <input type="number" data-ng-model="quntity[0]"></p>
+<p>Total : <span data-ng-bind="price[0] * quntity[0]"></span></p>
+
+<h3>ng Repeater</h3>
+<p>Reapter 1</p>
+<ul>	<li ng-repeat="x in  points">{{ x }}</li></ul>
+
+<p>Reapter 2</p>
+<ul><li data-ng-repeat="i in names">{{ i.name+' => '+i.country }}</li></ul>
+
+<h3>Ng - Function for name</h3>
+<p> Full Name with function : {{ fullName();}}</p>
+
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName= "Dhaval";
+  	  $scope.lastName= "Parekh";
+	 $scope.fullName = function(){
+			return $scope.firstName+' '+$scope.lastName;
+		}
+});
+</script>
+</body>
+</html>
