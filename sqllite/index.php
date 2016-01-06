@@ -38,7 +38,7 @@ function display($object){
 		return true;
 	}
 $db = new SQLite3('testdb.db');
-display($db);
+//display($db);
 
 $query = "
 CREATE TABLE IF NOT EXISTS  `test` (
@@ -47,15 +47,15 @@ CREATE TABLE IF NOT EXISTS  `test` (
 );
 ";
 $results = $db->query($query);
-display($results);
+//display($results);
 
 $query = "INSERT INTO test (name) VALUES ('Dhaval');";
-$query = "UPDATE test SET name = 'Nicolas Smith' WHERE id = 3; ";
+$query = "UPDATE test SET name = 'Nicolas Smith 1' WHERE id = 3; ";
 $results = $db->query($query);
 display($results);
 
 $results = $db->query('SELECT * FROM test');
-display($results);
+//display($results);
 while ($row = $results->fetchArray()) {
     var_dump($row);
 }

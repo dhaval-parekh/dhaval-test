@@ -1,0 +1,82 @@
+References : https://www.youtube.com/watch?v=bC_ychiR-Dk
+
+Create instance (with default setting) 
+dont forget to downlod private key file (.pem)
+
+connect useing console (window command prompt)
+with command 
+
+()
+=> ssh -i "path-to-private-key.pem" ec2-user@your-allocate-ip-or-public-domain
+
+after that install php and mysql by 
+=> sudo yum install php php-mysql
+=> sudo yum install mysql-server
+
+start both services 
+
+=> sudo service httpd start
+=> sudo service mysqld starti
+
+allow instace's security group to connect http:// protocol in dashboard
+
+====================== FTP With File Zilla ===========================================
+
+host name : IP address of Public domain
+user : ec2-user
+password: blank (no password)
+need to add security preferences for that 
+Go to Edit => Setting => (it will open box) in that => select "SFTP" and add your privete-key-file.pem
+
+And you can coonnect 
+it will take to /user/ec2-user 
+
+for public-directory /var/www/html
+but you dont have file write permission
+
+=> For File write permission
+go to command Prompt and (yes as we done at last) 
+
+
+====================== Wordpress Installation ========================================
+
+References: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hosting-wordpress.html
+
+
+Commands 
+=> wget https://wordpress.org/latest.tar.gz
+=> tar -xzf latest.tar.gz
+
+for Mysql Database
+start service
+=> sudo service mysqld start
+
+for login 
+=> mysql -u root -p
+
+create database user 
+=> CREATE USER 'wordpress-user'@'localhost' IDENTIFIED BY 'your_strong_password';
+
+create database
+=> CREATE DATABASE `wordpress-db`;
+CREATE DATABASE `suitart`;
+grant all privilige
+=> GRANT ALL PRIVILEGES ON `wordpress-db`.* TO "wordpress-user"@"localhost";
+
+
+
+
+not exit to mysql=> exit
+
+upload wordpress.zip file with  file zill
+and unzip it with 
+=> unzip wordpress.zip
+
+
+
+
+
+
+
+
+

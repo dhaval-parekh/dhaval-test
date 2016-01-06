@@ -1,0 +1,17 @@
+References: https://getcomposer.org/doc/00-intro.md
+in command prompt
+
+php -r "readfile('https://getcomposer.org/installer');" | php
+
+C:\bin>echo @php "%~dp0composer.phar" %*>composer.bat
+
+
+
+for specific lib (i.g. Google calander)
+
+
+php composer.phar require google/apiclient:1.*
+
+php composer.phar require braintree/braintree_php:3.2.0
+
+php composer.phar install

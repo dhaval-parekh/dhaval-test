@@ -1,0 +1,6 @@
+
+Build process completed successfully
+Installing '/usr/local/lib/php/extensions/no-debug-non-zts-20100525/mongo.so'
+install ok: channel://pecl.php.net/mongo-1.6.9
+Extension mongo enabled in php.ini
+root@s45-40-134-249 [~/bin]#

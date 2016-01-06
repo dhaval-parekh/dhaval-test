@@ -1,0 +1,9 @@
+
+// driver list 
+https://s3.amazonaws.com/drivers.mongodb.org/php/index.html
+
+http://www.pronique.com/blog/installing-mongodb-on-windows-the-wamp-way
+
+Ref Link : http://www.hongkiat.com/blog/webdev-with-mongodb-part3/
+sudo apt-get install php5-dev php5-cli php-pear
+sudo pecl install mongo

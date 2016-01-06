@@ -7,10 +7,11 @@ $port = 5353;
 
 $message = array(	//'command'=>'login',
 				//'command'=>'logout',
-				'command'=>'type',
+				
 				//'command'=>'pause',
 				'command'=>'send',
 				'command'=>'logout',
+				//'command'=>'type',
 				//'command'=>'ping',
 				//'phone'=>'919909208175',
 				'to'=>'919909208175',

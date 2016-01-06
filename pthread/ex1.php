@@ -25,16 +25,16 @@ class Example1 extends Thread{
 	
 	public function run(){
 		//$this->ex_start();
-		while($this->poll_counter < 10){
+		while($this->poll_counter < 5){
 			$this->poll();
 			sleep(1);	
 		}
 	}
 }
-
+echo PHP_SAPI.' <br>'.PHP_EOL;
 $object1 = new Example1();
 echo 'Executation Start '.time().' <br>'.PHP_EOL;
 $object1->start();
-die(json_encode(array('status'=>200,'message'=>'ok')));
+die(json_encode(array('status'=>200,'message'=>'ok','time'=>time() )));
 echo 'Executation End '.time().' <br>'.PHP_EOL;
 //$object1->poll();

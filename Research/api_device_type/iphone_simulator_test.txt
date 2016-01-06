@@ -1,0 +1,107 @@
+/====================== Data pass ====================/
+(1)
+{
+    env =     (
+    );
+    server =     {
+        COMSPEC = "C:\\Windows\\system32\\cmd.exe";
+        "CONTENT_LENGTH" = 30;
+        "CONTENT_TYPE" = "application/x-www-form-urlencoded";
+        "CONTEXT_DOCUMENT_ROOT" = "D:/wamp/www/";
+        "CONTEXT_PREFIX" = "";
+        "DOCUMENT_ROOT" = "D:/wamp/www/";
+        "GATEWAY_INTERFACE" = "CGI/1.1";
+        "HTTP_ACCEPT" = "*/*";
+        "HTTP_ACCEPT_ENCODING" = "gzip, deflate";
+        "HTTP_ACCEPT_LANGUAGE" = "en;q=1, fr;q=0.9, de;q=0.8, zh-Hans;q=0.7, zh-Hant;q=0.6, ja;q=0.5";
+        "HTTP_CONNECTION" = "keep-alive";
+        "HTTP_HOST" = "192.168.0.115";
+        "HTTP_ORIGIN" = "192.168.0.115";
+        "HTTP_USER_AGENT" = "Mover/1.0 (iPhone Simulator; iOS 8.3; Scale/2.00)";
+        PATH = "C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;D:\\wamp\\bin\\php\\php5.5.12\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\Windows Kits\\8.0\\Windows Performance Toolkit\\;D:\\wamp\\bin\\mongodb\\bin;";
+        PATHEXT = ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC";
+        "PATH_INFO" = "/server";
+        "PATH_TRANSLATED" = "D:\\wamp\\www\\server";
+        "PHP_SELF" = "/work/carconnect/api.php/server";
+        "QUERY_STRING" = "";
+        "REMOTE_ADDR" = "192.168.0.113";
+        "REMOTE_PORT" = 49962;
+        "REQUEST_METHOD" = POST;
+        "REQUEST_SCHEME" = http;
+        "REQUEST_TIME" = 1438671180;
+        "REQUEST_TIME_FLOAT" = "1438671180.434";
+        "REQUEST_URI" = "/work/carconnect/api.php/server";
+        "SCRIPT_FILENAME" = "D:/wamp/www/work/carconnect/api.php";
+        "SCRIPT_NAME" = "/work/carconnect/api.php";
+        "SERVER_ADDR" = "192.168.0.115";
+        "SERVER_ADMIN" = "admin@example.com";
+        "SERVER_NAME" = "192.168.0.115";
+        "SERVER_PORT" = 80;
+        "SERVER_PROTOCOL" = "HTTP/1.1";
+        "SERVER_SIGNATURE" = "<address>Apache/2.4.9 (Win64) PHP/5.5.12 Server at 192.168.0.115 Port 80</address>\n";
+        "SERVER_SOFTWARE" = "Apache/2.4.9 (Win64) PHP/5.5.12";
+        SystemRoot = "C:\\Windows";
+        WINDIR = "C:\\Windows";
+    };
+    session =     {
+        "api_key" = "";
+        "auth_token" = "";
+        test = yrdy;
+    };
+}
+
+
+2)
+
+/ ================== Bank Parameter ===================/
+
+env =     (
+    );
+    server =     {
+        COMSPEC = "C:\\Windows\\system32\\cmd.exe";
+        "CONTENT_LENGTH" = 1;
+        "CONTENT_TYPE" = "application/x-www-form-urlencoded";
+        "CONTEXT_DOCUMENT_ROOT" = "D:/wamp/www/";
+        "CONTEXT_PREFIX" = "";
+        "DOCUMENT_ROOT" = "D:/wamp/www/";
+        "GATEWAY_INTERFACE" = "CGI/1.1";
+        "HTTP_ACCEPT" = "*/*";
+        "HTTP_ACCEPT_ENCODING" = "gzip, deflate";
+        "HTTP_ACCEPT_LANGUAGE" = "en;q=1, fr;q=0.9, de;q=0.8, zh-Hans;q=0.7, zh-Hant;q=0.6, ja;q=0.5";
+        "HTTP_CONNECTION" = "keep-alive";
+        "HTTP_HOST" = "192.168.0.115";
+        "HTTP_ORIGIN" = "192.168.0.115";
+		
+        "HTTP_USER_AGENT" = "Mover/1.0 (iPhone Simulator; iOS 8.3; Scale/2.00)";
+		
+        PATH = "C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;D:\\wamp\\bin\\php\\php5.5.12\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\Windows Kits\\8.0\\Windows Performance Toolkit\\;D:\\wamp\\bin\\mongodb\\bin;";
+        PATHEXT = ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC";
+        "PATH_INFO" = "/server";
+        "PATH_TRANSLATED" = "D:\\wamp\\www\\server";
+        "PHP_SELF" = "/work/carconnect/api.php/server";
+        "QUERY_STRING" = "";
+        "REMOTE_ADDR" = "192.168.0.113";
+        "REMOTE_PORT" = 49965;
+        "REQUEST_METHOD" = POST;
+        "REQUEST_SCHEME" = http;
+        "REQUEST_TIME" = 1438671333;
+        "REQUEST_TIME_FLOAT" = "1438671333.279";
+        "REQUEST_URI" = "/work/carconnect/api.php/server";
+        "SCRIPT_FILENAME" = "D:/wamp/www/work/carconnect/api.php";
+        "SCRIPT_NAME" = "/work/carconnect/api.php";
+        "SERVER_ADDR" = "192.168.0.115";
+        "SERVER_ADMIN" = "admin@example.com";
+        "SERVER_NAME" = "192.168.0.115";
+        "SERVER_PORT" = 80;
+        "SERVER_PROTOCOL" = "HTTP/1.1";
+        "SERVER_SIGNATURE" = "<address>Apache/2.4.9 (Win64) PHP/5.5.12 Server at 192.168.0.115 Port 80</address>\n";
+        "SERVER_SOFTWARE" = "Apache/2.4.9 (Win64) PHP/5.5.12";
+        SystemRoot = "C:\\Windows";
+        WINDIR = "C:\\Windows";
+    };
+    session =     (
+    );
+
+
+
+

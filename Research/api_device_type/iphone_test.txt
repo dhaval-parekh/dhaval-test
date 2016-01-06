@@ -1,0 +1,74 @@
+/ =============== Server response ===================/
+
+env={
+  "CONTENT_LENGTH"=9;
+  "CONTENT_TYPE"="application/x-www-form-urlencoded";
+  "DOCUMENT_ROOT"="/home/whiteglovesme/public_html";
+  "GATEWAY_INTERFACE"="CGI/1.1";
+  "HTTP_ACCEPT"="*/*";
+  "HTTP_ACCEPT_ENCODING"="gzip, deflate";
+  "HTTP_ACCEPT_LANGUAGE"="en;
+  q=1";
+  "HTTP_CONNECTION"="keep-alive";
+  "HTTP_HOST"="whiteglovesme.com";
+  
+  "HTTP_USER_AGENT"="Mover/1.0 (iPhone; iOS 8.3; Scale/2.00)";
+  
+  PATH="/bin:/usr/bin";
+  "PATH_INFO"="/server";
+  "PATH_TRANSLATED"="/home/whiteglovesme/public_html/api.php";
+  "QUERY_STRING"="";
+  "REDIRECT_STATUS"=200;
+  "REMOTE_ADDR"="182.70.122.175";
+  "REMOTE_PORT"=51581;
+  "REQUEST_METHOD"=POST;
+  "REQUEST_URI"="/api.php/server";
+  "SCRIPT_FILENAME"="/home/whiteglovesme/public_html/api.php";
+  "SCRIPT_NAME"="/api.php";
+  "SERVER_ADDR"="45.40.135.197";
+  "SERVER_ADMIN"="webmaster@whiteglovesme.com";
+  "SERVER_NAME"="whiteglovesme.com";
+  "SERVER_PORT"=80;
+  "SERVER_PROTOCOL"="HTTP/1.1";
+  "SERVER_SIGNATURE"="<address>Apache/2.2.29 (Unix) mod_ssl/2.2.29 OpenSSL/1.0.1e-fips mod_bwlimited/1.4 Server at whiteglovesme.com Port 80</address>\n";
+  "SERVER_SOFTWARE"="Apache/2.2.29 (Unix) mod_ssl/2.2.29 OpenSSL/1.0.1e-fips mod_bwlimited/1.4";
+  "UNIQUE_ID"="VcBj-S0oh8UAADpcEyoAAAAI";
+};server={
+  "CONTENT_LENGTH"=9;
+  "CONTENT_TYPE"="application/x-www-form-urlencoded";
+  "DOCUMENT_ROOT"="/home/whiteglovesme/public_html";
+  "GATEWAY_INTERFACE"="CGI/1.1";
+  "HTTP_ACCEPT"="*/*";
+  "HTTP_ACCEPT_ENCODING"="gzip, deflate";
+  "HTTP_ACCEPT_LANGUAGE"="en;
+  q=1";
+  "HTTP_CONNECTION"="keep-alive";
+  "HTTP_HOST"="whiteglovesme.com";
+  "HTTP_ORIGIN"="whiteglovesme.com";
+  "HTTP_USER_AGENT"="Mover/1.0 (iPhone; iOS 8.3; Scale/2.00)";
+  PATH="/bin:/usr/bin";
+  "PATH_INFO"="/server";
+  "PATH_TRANSLATED"="/home/whiteglovesme/public_html/api.php";
+  "PHP_SELF"="/api.php/server";
+  "QUERY_STRING"="";
+  "REDIRECT_STATUS"=200;
+  "REMOTE_ADDR"="182.70.122.175";
+  "REMOTE_PORT"=51581;
+  "REQUEST_METHOD"=POST;
+  "REQUEST_TIME"=1438671869;
+  "REQUEST_TIME_FLOAT"="1438671869.69";
+  "REQUEST_URI"="/api.php/server";"
+  SCRIPT_FILENAME"="/home/whiteglovesme/public_html/api.php";
+  "SCRIPT_NAME"="/api.php";
+  "SERVER_ADDR"="45.40.135.197";
+  "SERVER_ADMIN"="webmaster@whiteglovesme.com";
+  "SERVER_NAME"="whiteglovesme.com";
+  "SERVER_PORT"=80;
+  "SERVER_PROTOCOL"="HTTP/1.1";
+  "SERVER_SIGNATURE"="<address>Apache/2.2.29 (Unix) mod_ssl/2.2.29 OpenSSL/1.0.1e-fips mod_bwlimited/1.4 Server at whiteglovesme.com Port 80</address>\n";
+  "SERVER_SOFTWARE"="Apache/2.2.29 (Unix) mod_ssl/2.2.29 OpenSSL/1.0.1e-fips mod_bwlimited/1.4";"UNIQUE_ID"="VcBj-S0oh8UAADpcEyoAAAAI";
+  argc=0;
+  argv=();
+};session={
+  test=test;
+};

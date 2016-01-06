@@ -1,0 +1,18 @@
+127.0.0.1:27017
+
+
+\
+d:
+cd wamp/bin/mongodb/bin
+
+#	start
+mongod -f "d:\wamp\bin\mongodb\bin/config.conf" --install --serviceName mongodb --serviceDisplayName "MongoDB Server Instance 27017" --serviceDescription "MongoDB Server Instance running on 27017"
+
+# Stop
+mongod -f "d:\wamp\bin\mongodb\bin/config.conf" --remove --serviceName mongodb --serviceDisplayName "MongoDB Server Instance 27017" --serviceDescription "MongoDB Server Instance running on 27017"
+
+net start mongodb
+
+mongod
+
+new Mongo
