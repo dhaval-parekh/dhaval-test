@@ -31,4 +31,22 @@ $_SESSION['access_token'] = $access_token;
 // Third Step
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
 $user = $connection->get("account/verify_credentials");
+$_SESSION['twitter_user'] = $user;
 echo '<pre>'; print_r($user); echo '</pre>';
+
+echo '<h1>Get Twitter</h1>';
+$my_tweets = $connection->get('statuses/user_timeline', array('screen_name' => 'wostest2dh', 'count' => 1));
+
+echo '<div class="twitter-bubble">';
+if(isset($my_tweets->errors))
+{          
+    echo 'Error :'. $my_tweets->errors[0]->code. ' - '. $my_tweets->errors[0]->message;
+}else{
+    echo makeClickableLinks($my_tweets[0]->text);
+}
+echo '</div>';
+
+//function to convert text url into links.
+function makeClickableLinks($s) {
+  return preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a target="blank" rel="nofollow" href="$1" target="_blank">$1</a>', $s);
+}
