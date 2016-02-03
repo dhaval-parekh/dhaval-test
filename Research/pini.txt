@@ -1,0 +1,172 @@
+http://askubuntu.com/questions/705880/how-to-install-php-7
+
+https://gist.github.com/Divi/9696838
+
+1. Remove => sudo apt-get remove --purge php5 libapache2-mod-php5 php5 php5-cli php5-common php5-curl php5-gd php5-imap php5-intl php5-json php5-mcrypt php5-mysql php5-pspell php5-readline php5-sqlite
+2. Install=> sudo apt-get install php5 libapache2-mod-php5 php5 php5-cli php5-common php5-curl php5-gd php5-imap php5-intl php5-json php5-mcrypt php5-mysql php5-pspell php5-readline php5-sqlite
+
+=======================================================================================
+Ref : http://php.net/manual/en/pthreads.installation.php
+
+For Wampp (Windows)
+-----------------------------------------------------------------------------------
+1.  Find out what is your 'PHP Extension Build' version by using phpinfo(). You can use this - http://localhost/?phpinfo=1
+
+2.  Download the pthreads that matches your php version (32 bit or 64 bit) and php extension build (currently used VC11). 
+	Use this link for download - http://windows.php.net/downloads/pecl/releases/pthreads/
+
+3.  Extract the zip -
+      Move php_pthreads.dll to the 'bin\php\ext\' directory.
+      Move pthreadVC2.dll to the 'bin\php\' directory.
+      Move pthreadVC2.dll to the 'bin\apache\bin' directory.
+      Move pthreadVC2.dll to the 'C:\windows\system32' directory.
+
+4.  Open php\php.ini and add
+      extension=php_pthreads.dll
+
+Now restart server and you are done. Thanks.
+
+
+
+
+For Lamp (Linux)
+------------------------------------------------------------------------------------------------------------------------------------------
+
+I haven't found any proper instructions on how to install pthreads in linux, so I'll leave the steps I followed:
+
+# Required libraries
+sudo apt-get install gcc make libzzip-dev libreadline-dev libxml2-dev \
+libssl-dev libmcrypt-dev libcurl4-openssl-dev lib32bz2-dev
+
+# Download PHP
+cd /usr/local/src
+
+wget http://www.php.net/distributions/php-<version>.tar.gz
+( e.g. wget http://www.php.net/distributions/php-5.5.8.tar.gz )
+
+# Extract
+tar zxvf php-<version>.tar.gz
+(e.g. tar zxvf php-5.5.8.tar.gz )
+
+# Configure
+cd /usr/local/src/php-<version>
+( e.g. cd /usr/local/src/php-5.5.8 )
+
+# Dont use it #./configure --prefix=/usr --with-config-file-path=/etc --enable-maintainer-zts --enable-pthreads=shared --enable-sockets --disable-fileinfo
+# ./configure --prefix=/usr --with-config-file-path=/etc --enable-maintainer-zts --enable-pthreads=shared --with-curl --with-mcrypt=static --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock --disable-fileinfo --enable-fastcgi
+# ./configure --prefix=/usr --with-config-file-path=/etc --enable-maintainer-zts --enable-pthreads=shared --enable-sockets --enable-curl --enable-mcrypt --with-mcrypt --with-mcrypt=static --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock --disable-fileinfo --enable-fastcgi
+
+# Compile
+make && make install
+( make -j3 && make -j3 install) -> Faster building
+
+# Copy configuration
+cp php.ini-development /etc/php.ini
+
+# Install pthreads
+pecl install pthreads
+echo "extension=pthreads.so" >> /etc/php.ini
+
+# Check installation
+php -m | grep pthreads
+
+
+
+=========================================================================================================
+Complate Re Install Apache2 
+
+$ sudo apt-get remove --purge apache2
+$ sudo apt-get clean
+$ sudo apt-get purge
+$ sudo apt-get autoremove
+sudo apt-get install apache2
+
+
+==============================================================================================
+Rereferences 
+http://www.hashbangcode.com/blog/compiling-and-installing-php7-ubuntu
+
+remove Php7
+
+sudo rm -rf /usr/bin/php && sudo ln -s /usr/local/php7/7.0.0/bin/php /usr/bin/php
+
+
+===================================================
+install php 7
+
+
+in this step there will be error occurer
+
+before make step 
+
+
+when this error ocurrues => "Cannot find OpenSSL's <evp.h>"
+use this =>  sudo apt-get install libcurl4-openssl-dev pkg-config.
+
+==============================================================================================================================
+Bison Install
+References = http://askubuntu.com/questions/622927/how-to-install-bison-2-7-in-ubuntu-14-04
+
+$ apt-cache show bison | grep -i version
+Version: 2:3.0.2.dfsg-2
+
+$ sudo add-apt-repository ppa:salehi/bison2
+$ sudo apt-get update && sudo apt-get install bison=2:2.7.1.dfsg-1
+
+==============================================================================================================================
+
+1. Install php as joe answare
+2. install php7.0-cgi (apt-get)
+3. install libapache2-mod-php7.0 (apt-get)
+4. restart apache2
+
+
+Socket in php 
+when compile
+./configure --prefix=/usr --with-config-file-path=/etc --enable-maintainer-zts --enable-pthreads=shared --enable-sockets
+
+
+
+
+
+sudo apt-get install make
+sudo apt-get install autoconf
+sudo apt-get install gcc
+
+
+./buildconf --force
+./configure --prefix=/usr --with-config-file-path=/etc --enable-maintainer-zts --enable-pthreads=shared --enable-sockets  --with-curl  --with-mcrypt --with-mcrypt=static --with-openssl --with-mysql --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock --disable-fileinfo --enable-phar
+
+
+===================================================================================================
+why pthreads not working in apache2handler (cgi)
+http://stackoverflow.com/questions/32795281/apache2-pthreads-fatal-error-the-apache2handler-sapi-is-not-supported-by-pthre?rq=1
+================================================================================================
+mysql
+
+sudo apt-get install mysql-server
+sudo service mysql restart
+
+--- login 
+mysql -u root -p password
+
+-- create user 
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+EX. =>  CREATE USER dmp@localhost IDENTIFIED BY 'testtest';
+
+GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+EX. => GRANT ALL PRIVILEGES ON * . * TO dmp@localhost;
+
+======================================================================================================
+
+Q. how to enable `RewriteEngine ` in ec2 ?
+A. 
+Edit `/etc/apache2/apache2.conf`
+and All this code
+<Directory /var/www/html>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+</Directory>
+
+
