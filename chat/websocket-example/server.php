@@ -19,6 +19,7 @@ $clients = array($socket);
 
 //start endless loop, so that our script doesn't stop
 while (true) {
+	if(file_exists('flag.txt') && file_get_contents('flag.txt')){ die('Server Closed');  }
 	//manage multipal connections
 	$changed = $clients;
 	//returns the socket resources in $changed array
