@@ -1,0 +1,60 @@
+sudo mkdir /var/www/dmptest007
+ll
+sudo mkdir dmptest007/html
+ll dmptest007/
+useradd
+ll
+sudo useradd dmptest007
+password dmptest007
+passwrd dmptest007
+passwd dmptest007
+sudo passwd dmptest007
+chown -R dmptest007 /var/www/dmptest007
+sudo chown -R dmptest007 /var/www/dmptest007
+ll
+sudo groupadd dmptest007
+sudo groupadd dmptest
+sudo gpasswd -a dmptest07 dmptest
+sudo gpasswd -a dmptest007 dmptest
+chgrp -R dmptest /var/www/dmptest007
+sudo chgrp -R dmptest /var/www/dmptest007
+sudo chmod -R g+rw /var/www/dmptest007
+ll
+cd dmptest007/
+;;
+ll
+cd ..
+cd /home/
+ll
+cd dmp/
+ll
+sudo usermod
+sudo usermod -m -d /var/www/dmptest007 dmptest007
+sudo kill 45771
+sudo usermod -m -d /var/www/dmptest007 dmptest007
+
+sudo nano /etc/vsftpd.conf
+## Add this line at bottom
+pasv_enable=YES
+pasv_min_port=13000
+pasv_max_port=13100
+port_enable=YES
+pasv_address=52.10.197.1
+pasv_addr_resolve=YES
+
+write_enable=YES
+
+anonymous_enable=NO
+local_enable=YES
+chroot_local_user=YES
+allow_writeable_chroot=YES
+reference 
+https://help.ubuntu.com/lts/serverguide/ftp-server.html#vsftpd-ftp-server-installation
+
+
+
+
+
+
+-- Open directory when FTP user login 
+usermod --home /var/www/ username
