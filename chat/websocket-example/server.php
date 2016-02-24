@@ -27,8 +27,8 @@ while (true) {
 	
 	//check for new socket
 	if (in_array($socket, $changed)) {
-		$socket_new = socket_accept($socket); //accpet new socket
-		$clients[] = $socket_new; //add socket to client array
+		$socket_new = socket_accept($socket); // accpet new socket
+		$clients[] = $socket_new; // add socket to client array
 		
 		$header = socket_read($socket_new, 1024); //read data sent by the socket
 		perform_handshaking($header, $socket_new, $host, $port); //perform websocket handshake
@@ -76,11 +76,9 @@ while (true) {
 // close the listening socket
 socket_close($sock);
 
-function send_message($msg)
-{
+function send_message($msg){
 	global $clients;
-	foreach($clients as $changed_socket)
-	{
+	foreach($clients as $changed_socket){
 		@socket_write($changed_socket,$msg.' test',strlen($msg));
 	}
 	return true;
@@ -88,17 +86,15 @@ function send_message($msg)
 
 
 //Unmask incoming framed message
-function unmask($text) {
+function unmask($text){
 	$length = ord($text[1]) & 127;
 	if($length == 126) {
 		$masks = substr($text, 4, 4);
 		$data = substr($text, 8);
-	}
-	elseif($length == 127) {
+	}elseif($length == 127){
 		$masks = substr($text, 10, 4);
 		$data = substr($text, 14);
-	}
-	else {
+	}else{
 		$masks = substr($text, 2, 4);
 		$data = substr($text, 6);
 	}
