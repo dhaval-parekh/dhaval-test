@@ -35,3 +35,5 @@ $encrypt = encrypt($data,$password);
 echo $encrypt.'<br>'.PHP_EOL;
 $encrypt = 'IWRbGmaLy8SsygLa3Kmlow0/bKGROJyu7j9FZ5gluyE658K/f9y4fU/cIIFd9fJBeDiDz1IzIHzNE0m6oxg8wV';
 echo decrypt($encrypt,$password);
+
+
