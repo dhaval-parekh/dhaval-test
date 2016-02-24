@@ -6,9 +6,7 @@
    <meta property="og:url"           content="http://whiteorangesoftware.com/" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="White Orange Software " />
-    <meta property="og:description"   content="The web development Company" />
-    <meta property="og:image"         content="http://leclient.ciphersoul.com/uploads/product/default.png" />
-    
+    <meta property="og:description"   content="The web development Company" />    
 </head>
 <body>
 
