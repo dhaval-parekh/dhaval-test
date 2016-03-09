@@ -1,15 +1,15 @@
 <?php
-/*	*	*	*	*	*	*	*	*	*	*	*
+/*	*	*	*	*	*	*	*	*	*	*	*	*	*	*
  *	Author: Dhaval Parekh  [) ]-[ /-\ \/ /-\ |_ 		*
- *	Author Url: about.me/dmparekh					*
- *	Company : 								*
- *	Company Url : 								*
- *	Description: application configuration File		*
- *											*
- *											*
- *											*
- *											*
- *	*	*	*	*	*	*	*	*	*	*	*
+ *	Author Url: about.me/dmparekh						*
+ *	Company : 											*
+ *	Company Url : 										*
+ *	Description: application configuration File			*
+ *														*
+ *														*
+ *														*
+ *														*
+ *	*	*	*	*	*	*	*	*	*	*	*	*	*	*
  */
 
 
@@ -27,7 +27,7 @@ define('API_KEY', 'app_secreat_key');
 define('PASSWORD','aw-098@#@Q_Ckpawe94');
 define('SALT','S%#)(vcds;ldWEas@#@');
 
-define('BASE_URL', 'http://localhost/work/sync/');
+define('BASE_URL', 'http://localhost/work/test/sync/');
 define('INDEX', 'index.php');
 define('DS', DIRECTORY_SEPARATOR);
 define('APP_URL', BASE_URL.'app/');
@@ -37,7 +37,7 @@ define('ADMIN_URL', BASE_URL.INDEX.'/'.'admin/');
 define('CACHE_EXPIRY_TIME',100*60); // time in second // 15 minute
 
 define('HOST','127.0.0.1');
-define('PORT',6000); 
+define('PORT',9000); 
 
 // session File Setting
 ini_set('session.save_path',BASE_PATH.DS.'tmp'.DS.'session');

@@ -76,7 +76,8 @@ $this->Template->setCallback(function(){
 	<script type="text/javascript">
 		angular.module('sync',[]).controller('home',function($scope,$http){
 			$scope.form = new Object();
-			var wsUri = "ws://localhost:9000/work/test/chat/websocket-example/server.php"; 	
+			//var wsUri = "ws://localhost:9000/work/test/chat/websocket-example/server.php"; 	
+			var wsUri = "ws://localhost:9000/work/test/sync/api/socket.php"
 			websocket = new WebSocket(wsUri); 
 			
 			

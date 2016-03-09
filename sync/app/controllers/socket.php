@@ -16,6 +16,7 @@ class Socket extends Controller{
 	
 	// server Socket ( for web socket )
 	public function socketServer($input){
+		//system_log($_SERVER);
 		if($input['key'] !== API_KEY){ return array('error'=>401); }
 		$command = strtolower(trim($input['command']));
 		$available_commands = array('start','stop');
@@ -35,10 +36,13 @@ class Socket extends Controller{
 					socket_listen($this->socket);
 					$this->client = array($this->socket);
 					$count = 0;
-					while($count < 5){ //(true){
+					$file = fopen($this->flag_file,'w');
+					fwrite($file,'');
+					fclose($file);
+					while(true){
 						$count++;
 						sleep(1);
-						if(file_exists($this->flag_file) && file_get_contents($this->flag_file)){ die('Server Closed');  }
+						if(file_exists($this->flag_file) && file_get_contents($this->flag_file)){ system_log('socket close'); die('Server Closed');  }
 						$changed = $this->client;
 						socket_select($changed, $null, $null, 0, 10);
 						if (in_array($this->socket, $changed)) {
@@ -50,6 +54,11 @@ class Socket extends Controller{
 					return array('socketStatus'=>'running');
 				break;
 			case 'stop':
+					$file = fopen($this->flag_file,'w');
+					fwrite($file,'1');
+					sleep(2);
+					fwrite($file,'');
+					fclose($file);
 					return array('socketStatus'=>'stoped');
 				break;	
 		}

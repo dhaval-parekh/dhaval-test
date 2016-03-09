@@ -19,7 +19,15 @@ require_once('config/route.php');
 if(!is_dir(UPLOAD_DIR)){	mkdir(UPLOAD_DIR,0777); }
 
 if(php_sapi_name() == 'cli'){
-	die();
+	
+	$ControllerFile = DIR_CONTROLLER.DS.'socket.php'; 
+	require_once($ControllerFile);
+	$Controller = new Socket();
+	$input = array();
+	$input['key'] = 'app_secreat_key';
+	$input['command'] = $argv[1];
+	$response = $Controller->socketServer($input);
+	die(json_encode($response));
 }
 
 $GET = array();
