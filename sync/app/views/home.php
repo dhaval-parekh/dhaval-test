@@ -49,7 +49,8 @@ $this->Template->setCallback(function(){
 		angular.module('sync',[]).controller('home',function($scope,$http){
 			$scope.form = new Object();
 			//var wsUri = "ws://localhost:9000/work/test/chat/websocket-example/server.php"; 	
-			var wsUri = "ws://localhost:9000/work/test/sync/api/socket.php"
+			//var wsUri = "ws://localhost:9000/work/test/sync/api/socket.php"
+			var wsUri = "ws://<?php echo HOST; ?>:9000/work/test/sync/api/socket.php"
 			websocket = new WebSocket(wsUri); 
 			$scope.users = [ ];
 			
@@ -72,13 +73,17 @@ $this->Template->setCallback(function(){
 					case 'userdata':
 							console.log(data);
 							$scope.setUser(data.payload);
+							
 						break;
 				}
 				
 			}
 			
 			$scope.setUser = function(users){
-				$scope.users = users;
+				$scope.$apply(function(){
+					$scope.users = users;	
+				})
+				
 			}
 			
 			$scope.sendMessage = function (msg){
