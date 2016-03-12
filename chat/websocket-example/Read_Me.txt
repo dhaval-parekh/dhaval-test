@@ -1,3 +1,6 @@
+References
+http://www.sanwebe.com/2013/05/chat-using-websocket-php-socket
+
 Running Server :
 
 1. Change host address in index.php and server.php

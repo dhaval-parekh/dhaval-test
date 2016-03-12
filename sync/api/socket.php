@@ -3,7 +3,7 @@ require_once('../config/config.php');
 
 //	define
 $socket = false;
-$client = false;
+
 $host = HOST;
 $port = PORT;
 $flag_file = BASE_PATH.DS.'tmp'.DS.'socketflag';
@@ -47,13 +47,15 @@ switch($command){
 			fclose($file);
 			while(true){
 				$count++;
-				sleep(3);
+				
 				if(file_exists($flag_file) && file_get_contents($flag_file)){  die('Server Closed');  }
 				$changed = $clients;
-				//display($socket);
-				display($changed);
 				
+				//print_r($changed);
+				//print_r(PHP_EOL);
 				socket_select($changed, $null, $null, 0, 10);
+				//print_r(PHP_EOL);
+				//print_r($changed);
 				if (in_array($socket, $changed)) {
 					$socket_new = socket_accept($socket); // accpet new socket
 					$clients[] = $socket_new; // add socket to client array
@@ -64,18 +66,47 @@ switch($command){
 					socket_getpeername($socket_new, $ip); //get ip address of connected socket
 					$response = array('type'=>'system', 'message'=>$ip.' connected');
 					$response = mask(json_encode($response)); //prepare json data
+					
+					//print_r($socket_new); // new connection of client
 					send_message($response); //notify all users about new connection
+					
+					//make room for new socket
+					$found_socket = array_search($socket, $changed);
+					//print_r(PHP_EOL);
+					//print_r($found_socket);
+					unset($changed[$found_socket]);
 				}
 				
-				/*foreach ($changed as $changed_socket){
-						while(socket_recv($changed_socket, $buf, 2048, 0) >= 1){
-							
-						}
-				}*/
-
+				//	$clients 		// This containe all list of clientd that is conected to server
+				// 	$changed		// This containe all CLOSED client that were connected to server // Disconnected list
 				
-
 				
+				
+				foreach ($changed as $changed_socket){
+					
+					//check for any incomming data
+					while(socket_recv($changed_socket, $buf, 2048, 0) >= 1){
+						$received_text = unmask($buf); //unmask data
+						$message = json_decode($received_text,true); //json decode 
+						handle_recevied_message($message);
+						break 2;
+					}
+					$buf = @socket_read($changed_socket, 2048, PHP_NORMAL_READ);
+					if ($buf === false) { // check disconnected client
+						$disconnected_socket = array_search($changed_socket, $clients);
+						unset($clients[$disconnected_socket]);
+					}
+				}
+				
+				//print_r(PHP_EOL);
+				//print_r($clients);
+				//print_r(PHP_EOL);
+				//print_r($changed);
+				//print_r(PHP_EOL);
+				//print_r('---------------------------------------------------'.PHP_EOL);
+				//	$clients 		// This containe all list of clientd that is conected to server
+				// 	$changed		// This containe all CLOSED client that were connected to server // Disconnected list
+				//sleep(5);
 			}// Infinite While Over
 			socket_close($socket);
 			return array('socketStatus'=>'running');
@@ -89,7 +120,67 @@ switch($command){
 		break;	
 }
 
-//	Helper Function
+// Action function 
+function handle_recevied_message($message){
+	$action = isset($message['action'])?$message['action']:false;
+	$data = isset($message['data'])?$message['data']:false;
+	
+	$response = array();
+	switch($action){
+		case 'addupdateuser':
+				$flag = call_system_api($action,$data);
+				if($flag){
+					$response['action'] = 'userdata';
+					$response['payload'] = call_system_api('getuser');
+				}
+			break;
+		case 'getuser':
+				$response['action'] = 'userdata';
+				$response['payload'] = call_system_api('getuser');
+			break;
+	}
+
+	$response = mask(json_encode($response));
+	send_message($response);
+}
+
+
+function call_system_api($action,$args = false){
+	static $count = 0;
+	global $api_route;
+	$response = false;
+	$count++;
+	
+	if($action){
+		require_once(DIR_SYS.DS.'core'.DS.'class.api-request.php');
+		require_once(BASE_PATH.'/api/route.api.php');
+		$Request = isset($api_route[$action])?$api_route[$action]:false;
+		
+		if($Request){
+			
+			$controller = $Request->getController();
+			$action = $Request->getAction();
+			
+		print_r($count.'  '.$action.PHP_EOL);	
+			
+			$ControllerFile = DIR_CONTROLLER.DS.$controller.'.php'; 
+			$ControllerFile = file_exists($ControllerFile)?$ControllerFile:false;
+			if(! $ControllerFile){ return false; }
+			require_once($ControllerFile);
+			
+			if(! class_exists($controller)){ return false; }
+			$_Controller = new $controller;
+			if(! method_exists($_Controller,$action)){ return false; }
+			
+			$response = $_Controller->$action($args);
+			return $response;
+		}
+	}
+	
+	return false;
+}
+
+//	Helper Function of Web socket
 //	that sent message to all
 function send_message($msg){
 	global $clients;
@@ -138,7 +229,7 @@ function mask($text)
 }
 
 //handshake new client.
-// this is use to notify client (brower) that you are connected to server (By sending the Header )
+// this is use to notify client (browser) that you are connected to server (By sending the Header )
 function perform_handshaking($receved_header,$client_conn, $host, $port)
 {
 	$headers = array();

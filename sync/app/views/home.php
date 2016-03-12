@@ -8,6 +8,7 @@
 ?>
 
 <div class="container margin-top-lg" ng-app="sync" ng-controller="home">
+
 	<?php echo $this->Form->Open('','POST','frmUser'); ?>
 	<table class="table ">
 		<tr>
@@ -41,35 +42,6 @@
 	<?php echo $this->Form->Close(); ?>
 	
 </div>
-
-<?php /*?><div id="UserModal" class="modal fade" tabindex="-1" role="dialog">
-	<?php echo $this->Form->Open(); ?>
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Add/Update User</h4>
-			</div>
-			<div class="modal-body">
-				<?php
-					echo $this->Form->Input('text','name',false,'','Name',array('placeholder'=>'Enter Name','ng-model'=>'form'),$html_attr);
-					echo $this->Form->Input('email','email',false,'','Email',array('placeholder'=>'Enter email'),$html_attr);
-					echo $this->Form->Input('tel','phone',false,'','Phone',array('placeholder'=>'Enter phone'),$html_attr);
-				?>
-				<div class="clear"></div>
-			</div>
-			<div class="modal-footer">
-				<input type="hidden" id="id" name="id" value="">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
-			</div>
-		</div>
-		<!-- /.modal-content --> 
-	</div>
-	<?php echo $this->Form->Close(); ?>
-	<!-- /.modal-dialog --> 
-</div><?php */?>
-<!-- /.modal -->
 <?php
 $this->Template->setCallback(function(){
 ?>
@@ -79,10 +51,11 @@ $this->Template->setCallback(function(){
 			//var wsUri = "ws://localhost:9000/work/test/chat/websocket-example/server.php"; 	
 			var wsUri = "ws://localhost:9000/work/test/sync/api/socket.php"
 			websocket = new WebSocket(wsUri); 
+			$scope.users = [ ];
 			
-			
+			// Web Socket function 
 			websocket.onopen = function(ev) { // connection is open 
-				console.log('websocket Open');
+				console.log('Open');
 			}
 			websocket.onerror	= function(ev){ 
 				console.log('on Error'); 
@@ -91,17 +64,26 @@ $this->Template->setCallback(function(){
 				console.log('on Close'); 
 			}; 
 			websocket.onmessage = function(ev) {
-				console.log('On Message');
-				console.log(ev.data);
-				var msg = {
-					message: 'Hey !',
-					name: 'Dumbler',
-					color:'#00sa45'
+				var data = new Object 
+				data = JSON.parse(ev.data);
+				if(typeof(data.action) == 'undefined'){ return false; }
+				var action = data.action;
+				switch(action){
+					case 'userdata':
+							console.log(data);
+							$scope.setUser(data.payload);
+						break;
 				}
-				//websocket.send(JSON.stringify(msg));
+				
 			}
-			$scope.users = [ ];
-
+			
+			$scope.setUser = function(users){
+				$scope.users = users;
+			}
+			
+			$scope.sendMessage = function (msg){
+				websocket.send(JSON.stringify(msg));
+			}
 			// init 
 			
 			$scope.updateUserList = function(){
@@ -113,20 +95,16 @@ $this->Template->setCallback(function(){
 			}
 			
 			$scope.submitForm = function(){
-				/*$http.post(api_url+'addupdateuser/',$scope.form)
-					.success(function(data){
-						if(data.status != 200){ alert(data.message); return false; }
-						$scope.users = data.payload;
-					});
-				*/
 				var msg = {
-					message: $scope.form.email,
+					email: $scope.form.email,
 					name: $scope.form.name,
-					color:'#000'
+					phone: $scope.form.phone,
+					id: $scope.form.id,
 				}
-				websocket.send(JSON.stringify(msg));
-				$scope.updateUserList();
-				
+				var request = new Object();
+				request.action = 'addupdateuser';
+				request.data = msg;
+				$scope.sendMessage(request);
 			}
 			
 			$scope.updateUser = function(id){

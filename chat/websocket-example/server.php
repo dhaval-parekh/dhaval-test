@@ -1,5 +1,18 @@
 <?php
-$host = 'localhost'; //host
+
+if(! function_exists('system_log') ){
+	function system_log($text){
+		$file_name = 'system_log.txt';
+		$file = fopen($file_name, "a");
+		$cur_Date = date('Y-m-d H:i:s');
+		$location = '';
+		if(is_array($text)){ $text = 'Array => '.json_encode($text); }
+		$text = $cur_Date.' => '.$location.'  Log = "'.$text.'"; '.PHP_EOL;
+		fwrite($file, $text);
+	}	
+}
+
+$host = '192.168.0.109'; //host
 $port = '9000'; //port
 $null = NULL; //null var
 
@@ -16,7 +29,8 @@ socket_listen($socket);
 
 //create & add listning socket to the list
 $clients = array($socket);
-
+//echo '<pre>'; print_r($_SERVER); echo '</pre>';
+system_log($_SERVER);
 //start endless loop, so that our script doesn't stop
 while (true) {
 	if(file_exists('flag.txt') && file_get_contents('flag.txt')){ die('Server Closed');  }

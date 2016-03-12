@@ -282,6 +282,8 @@ class ApiRequest{
 	}
 	
 	// Getter Function 
+	public function getController(){ return $this->controller; }
+	public function getAction(){return $this->action;	}
 	
 	public function getParam(){
 		return $this->params;	
