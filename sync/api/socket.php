@@ -161,7 +161,7 @@ function call_system_api($action,$args = false){
 			$controller = $Request->getController();
 			$action = $Request->getAction();
 			
-		print_r($count.'  '.$action.PHP_EOL);	
+		//print_r($count.'  '.$action.PHP_EOL);	
 			
 			$ControllerFile = DIR_CONTROLLER.DS.$controller.'.php'; 
 			$ControllerFile = file_exists($ControllerFile)?$ControllerFile:false;
