@@ -51,7 +51,9 @@ table tr:nth-child(even) {
 
 </body>
 <script type="text/javascript">
-	angular.module('app',[]).controller('appController',function($scope,$http){
+	var app = angular.module('app',[]);
+	console.log(app);
+	app.controller('appController',function($scope,$http){
 		$scope.users = [ {id:1, name:'Dhaval'} ,{id:2, name:'Parekh'} ,{id:3, name:'Nicolash'} ,
 				 {id:4, name:'Smith'} ,{id:5, name:'Devang'} ,{id:6, name:'Bhargav'} 	];
 		
