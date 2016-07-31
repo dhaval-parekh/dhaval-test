@@ -19,7 +19,7 @@ require_once('config/route.php');
 if(!is_dir(UPLOAD_DIR)){	mkdir(UPLOAD_DIR,0777); }
 
 if(php_sapi_name() == 'cli'){
-	
+	system_log('cli execute');
 	$ControllerFile = DIR_CONTROLLER.DS.'socket.php'; 
 	require_once($ControllerFile);
 	$Controller = new Socket();
