@@ -1,0 +1,51 @@
+2016-08-01 10:30:54 =>   Log = "GET /dhaval-web/dhaval-test/sync/api/socket.php HTTP/1.1
+Host: localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Sec-WebSocket-Version: 13
+Origin: http://localhost:8888
+Sec-WebSocket-Extensions: permessage-deflate
+Sec-WebSocket-Key: vB1wrRlAniqIBL9lU+kh9A==
+Cookie: PHPSESSID=8e6cd77bbc521eb7c110edca593988c2; SQLiteManager_currentLangue=2
+Connection: keep-alive, Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+Upgrade: websocket
+
+"; 
+2016-08-01 10:31:59 =>   Log = "GET /dhaval-web/dhaval-test/sync/api/socket.php HTTP/1.1
+Host: localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Sec-WebSocket-Version: 13
+Origin: http://localhost:8888
+Sec-WebSocket-Extensions: permessage-deflate
+Sec-WebSocket-Key: Y0OF4JmvkS0Q3+AxFif1zw==
+Cookie: PHPSESSID=fd01f1c29b83257fe5ef7d7235dc5f7c
+Connection: keep-alive, Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+Upgrade: websocket
+
+"; 
+2016-08-01 10:34:19 =>   Log = "GET /dhaval-web/dhaval-test/sync/api/socket.php HTTP/1.1
+Host: localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Sec-WebSocket-Version: 13
+Origin: http://localhost:8888
+Sec-WebSocket-Extensions: permessage-deflate
+Sec-WebSocket-Key: tEwhEMA3xxEPXChbaEqoLw==
+Cookie: PHPSESSID=8e6cd77bbc521eb7c110edca593988c2; SQLiteManager_currentLangue=2
+Connection: keep-alive, Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+Upgrade: websocket
+
+"; 

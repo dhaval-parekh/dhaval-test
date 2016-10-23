@@ -1,0 +1,12 @@
+# How to add muliple domain in apache server
+
+- Edit file by this commend 
+	sudo nano /etc/apache2/sites-available/000-default.conf 
+- Add code below 
+	<VirtualHost *:80>
+		ServerName www.giflie.com       
+		ServerAlias giflie.com 
+		DocumentRoot "/var/www/www.giflie.com/"
+	</VirtualHost>
+	Note : here `ServerAlias giflie.com` for muliple server name like for both `www.giflie.com` and `giflie.com`
+-	References : https://httpd.apache.org/docs/current/vhosts/examples.html

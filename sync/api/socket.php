@@ -1,6 +1,6 @@
 <?php
 
-require_once(dirname( dirname(__FILE__)) . '/config/config.php');
+require_once(dirname( dirname( __FILE__ ) ) . '/config/config.php');
 
 //	define
 $socket = false;
@@ -68,7 +68,7 @@ switch ( $command ) {
 				$clients[] = $socket_new; // add socket to client array
 
 				$header = socket_read( $socket_new, 2048 ); //read data sent by the socket
-				system_log($header);
+				system_log( $header );
 				perform_handshaking( $header, $socket_new, $host, $port ); //perform websocket handshake
 
 				socket_getpeername( $socket_new, $ip ); //get ip address of connected socket
@@ -227,12 +227,13 @@ function mask( $text ) {
 	$b1 = 0x80 | (0x1 & 0x0f);
 	$length = strlen( $text );
 
-	if ( $length <= 125 )
+	if ( $length <= 125 ) {
 		$header = pack( 'CC', $b1, $length );
-	elseif ( $length > 125 && $length < 65536 )
+	} elseif ( $length > 125 && $length < 65536 ) {
 		$header = pack( 'CCn', $b1, 126, $length );
-	elseif ( $length >= 65536 )
+	} elseif ( $length >= 65536 ) {
 		$header = pack( 'CCNN', $b1, 127, $length );
+	}
 
 	return $header . $text;
 }
