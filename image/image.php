@@ -151,7 +151,7 @@ function resize( $source_image, $destination, $tn_w, $tn_h, $quality = 100, $wms
 ////////////////
 //resize('watermark.png', 'watermark.png', 200, 200,100);
 //resize('image.jpg', 'out.jpg', 1000, 1000,100,false);
-//resize('image.jpg', 'out1.jpg', 1000, 500,100,false);
+resize('image.jpg', 'out1.jpg', 1000, 500,100,false);
 //ak_img_thumb('image.jpg','new.jpg',250,500,'jpg');
 
 function getImage( $data ) {
@@ -171,5 +171,8 @@ function getImage( $data ) {
 if ( isset( $_GET['image'] ) && $_GET['image'] == 1 ) {
 	getImage( $data );
 }
+
+
+die();
 ?>
 <img src="image.php?image=1">

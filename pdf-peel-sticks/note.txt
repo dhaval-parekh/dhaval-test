@@ -1,0 +1,4 @@
+To convert pdf to png
+
+=> covert file.pdf image.png
+=> 
