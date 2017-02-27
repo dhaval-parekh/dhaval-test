@@ -1,0 +1,10 @@
+<svg version="1.1" baseProfile="basic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 360">
+    <defs>
+        <pattern patternUnits="userSpaceOnUse" id="pat1" x="10" y="10" width="425" height="319">
+            <image width="425" height="319" xlink:href="../frontend/img/Garfield.jpg" />
+        </pattern>
+        <text id="txt1" y="100" font-weight="bold" font-family="Verdana" font-size="100">Some Text</text>
+    </defs>     
+ 
+    <use width="1000" height="400" xlink:href="#txt1" fill="url(#pat1)"/>
+</svg>

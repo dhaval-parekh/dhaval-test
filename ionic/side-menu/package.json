@@ -15,12 +15,12 @@
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
+    "cordova-plugin-whitelist",
     "cordova-plugin-statusbar",
     "cordova-plugin-console",
     "cordova-plugin-device",
-    "cordova-plugin-splashscreen",
-    "cordova-plugin-whitelist",
-    "ionic-plugin-keyboard"
+    "ionic-plugin-keyboard",
+    "cordova-plugin-splashscreen"
   ],
   "cordovaPlatforms": [
     "ios",
