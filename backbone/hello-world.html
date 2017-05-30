@@ -41,6 +41,13 @@
 				}
 			});
 			var appView = new AppView();
+
+
+			var onClickLike = function (){
+				console.log( 'on Click Product Like' );
+			}
+			_.bind('product:like',onClickLike);
+
 		</script>
 
 	</body>

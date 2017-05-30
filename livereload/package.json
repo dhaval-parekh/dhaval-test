@@ -1,0 +1,21 @@
+{
+  "name": "livereload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "extract-text-webpack-plugin": "^2.1.0",
+    "gulp-livereload": "^3.8.1",
+    "webpack-livereload-plugin": "^0.10.0",
+    "webpack-watch-livereload-plugin": "0.0.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
